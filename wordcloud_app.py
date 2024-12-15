@@ -90,7 +90,8 @@ if upload_file:
     mask_file = st.sidebar.file_uploader("Upload a mask image (optional)", type=["png", "jpg", "jpeg"])
 
     # Default mask dropdown
-    default_mask_path = "C:\\Users\\User\\Desktop\\Streamlit\\wordcloud_app\\masks-wordclouds"
+    # Path to masks folder (relative to script location)
+    default_mask_path = os.path.join(os.path.dirname(__file__), "masks-wordclouds")
     default_masks = [f for f in os.listdir(default_mask_path) if f.endswith(('.png', '.jpg', '.jpeg'))]
     selected_mask_name = st.sidebar.selectbox("Or select a default mask", [None] + default_masks)
 
